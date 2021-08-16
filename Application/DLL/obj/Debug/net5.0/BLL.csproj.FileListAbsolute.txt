@@ -1,0 +1,17 @@
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\BLL.deps.json
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\BLL.dll
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\ref\BLL.dll
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\BLL.pdb
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\Core.dll
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\Domain.dll
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\Core.pdb
+D:\Vs projects\Application\DLL\bin\Debug\net5.0\Domain.pdb
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.csproj.AssemblyReference.cache
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.AssemblyInfoInputs.cache
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.AssemblyInfo.cs
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.csproj.CoreCompileInputs.cache
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.csproj.CopyComplete
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.dll
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\ref\BLL.dll
+D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.pdb

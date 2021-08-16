@@ -1,0 +1,15 @@
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\Domain.deps.json
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\Domain.runtimeconfig.json
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\Domain.runtimeconfig.dev.json
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\Domain.dll
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\ref\Domain.dll
+D:\Vs projects\Application\Domain\bin\Debug\net5.0\Domain.pdb
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.dll
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\ref\Domain.dll
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.pdb
+D:\Vs projects\Application\Domain\obj\Debug\net5.0\Domain.genruntimeconfig.cache
