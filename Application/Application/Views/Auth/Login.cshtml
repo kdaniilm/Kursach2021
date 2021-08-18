@@ -1,0 +1,10 @@
+﻿@model Domain.ViewModels.LoginViewModel
+
+@using(Html.BeginForm("Login", "Auth", FormMethod.Post))
+{
+    <input placeholder="Your login" asp-for="Login" type="text"/>
+    <input placeholder="Your password" asp-for="Password" type="text"/>
+    <label asp-for="RememberMe">RememberMe</label>
+    <input asp-for="RememberMe" type="checkbox"/>
+    <input type="submit" value="SignIn"/>
+}

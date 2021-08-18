@@ -1,7 +1,12 @@
+using BLL.Interfaces;
+using BLL.Providers;
+using BLL.Servises;
 using Core.Context;
+using Domain.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +31,19 @@ namespace Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("devCon"), migrations => migrations.MigrationsAssembly("Core")));
+
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<EmailConfirmationProviderOption>(op => op.TokenLifespan = TimeSpan.FromHours(2));
+
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<ApplicationContext>()
+            .AddDefaultTokenProviders().AddTokenProvider<EmailConfirmationTokenProvider<User>>("emailconfirmation");
+
+            services.AddTransient<AuthService>();
+
+            services.AddAuthentication().AddCookie(op => op.LoginPath = "/Login");
+
+
             services.AddControllersWithViews();
         }
 

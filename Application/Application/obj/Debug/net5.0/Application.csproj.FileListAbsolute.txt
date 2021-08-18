@@ -392,3 +392,7 @@ D:\Vs projects\Application\Application\obj\Debug\net5.0\Application.pdb
 D:\Vs projects\Application\Application\obj\Debug\net5.0\Application.genruntimeconfig.cache
 D:\Vs projects\Application\Application\bin\Debug\net5.0\Humanizer.dll
 D:\Vs projects\Application\Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Vs projects\Application\Application\obj\Debug\net5.0\Razor\Views\Auth\Register.cshtml.g.cs
+D:\Vs projects\Application\Application\obj\Debug\net5.0\Razor\Views\Auth\ConfirmEmailRequest.cshtml.g.cs
+D:\Vs projects\Application\Application\obj\Debug\net5.0\Razor\Views\Auth\ConfirmEmailResponce.cshtml.g.cs
+D:\Vs projects\Application\Application\obj\Debug\net5.0\Razor\Views\Auth\Login.cshtml.g.cs

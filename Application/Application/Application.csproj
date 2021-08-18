@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationApi\ApplicationApi.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DLL\BLL.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />

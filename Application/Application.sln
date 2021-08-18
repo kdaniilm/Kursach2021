@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{EBBE3A53-8CED-42F9-98F7-2A846A5F0EAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationApi", "ApplicationApi\ApplicationApi.csproj", "{5A817B0A-0623-41AC-8F49-97D3FA75357C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationApi", "ApplicationApi\ApplicationApi.csproj", "{5A817B0A-0623-41AC-8F49-97D3FA75357C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

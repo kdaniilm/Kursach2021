@@ -1775,21 +1775,6 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "ApplicationApi/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "BLL": "1.0.0",
-          "Core": "1.0.0",
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ApplicationApi.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ApplicationApi.dll": {}
-        }
-      },
       "BLL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -1802,7 +1787,10 @@
         },
         "runtime": {
           "bin/placeholder/BLL.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Core/1.0.0": {
         "type": "project",
@@ -6542,11 +6530,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "ApplicationApi/1.0.0": {
-      "type": "project",
-      "path": "../ApplicationApi/ApplicationApi.csproj",
-      "msbuildProject": "../ApplicationApi/ApplicationApi.csproj"
-    },
     "BLL/1.0.0": {
       "type": "project",
       "path": "../DLL/BLL.csproj",
@@ -6565,7 +6548,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "ApplicationApi >= 1.0.0",
       "BLL >= 1.0.0",
       "Core >= 1.0.0",
       "Domain >= 1.0.0",
@@ -6609,9 +6591,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Vs projects\\Application\\ApplicationApi\\ApplicationApi.csproj": {
-              "projectPath": "D:\\Vs projects\\Application\\ApplicationApi\\ApplicationApi.csproj"
-            },
             "D:\\Vs projects\\Application\\Core\\Core.csproj": {
               "projectPath": "D:\\Vs projects\\Application\\Core\\Core.csproj"
             },

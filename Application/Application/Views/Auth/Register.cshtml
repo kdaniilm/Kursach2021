@@ -1,0 +1,10 @@
+﻿@model Domain.ViewModels.RegisterViewModel
+
+@using (Html.BeginForm("Register", "Auth", FormMethod.Post))
+{
+    <input asp-for="Email" placeholder="Your email"/>
+    <input asp-for="Login" placeholder="Your login"/>
+    <input asp-for="Password" placeholder="Your password"/>
+    <input asp-for="RepeatPassword" placeholder="repiat your password"/>
+    <input type="submit"/>
+}
