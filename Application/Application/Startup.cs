@@ -43,6 +43,14 @@ namespace Application
 
             services.AddAuthentication().AddCookie(op => op.LoginPath = "/Login");
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    );
+            });
 
             services.AddControllersWithViews();
         }
@@ -64,6 +72,8 @@ namespace Application
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

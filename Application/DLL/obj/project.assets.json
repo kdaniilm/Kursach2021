@@ -5902,11 +5902,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Vs projects\\Application\\DLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\DLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "D:\\Vs projects\\Application\\DLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\DLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Vs projects\\Application\\DLL\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\DLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5929,11 +5929,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Vs projects\\Application\\Core\\Core.csproj": {
-              "projectPath": "D:\\Vs projects\\Application\\Core\\Core.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Core\\Core.csproj"
             },
-            "D:\\Vs projects\\Application\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Vs projects\\Application\\Domain\\Domain.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Vs projects\\Application\\Domain\\Domain.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Vs projects\\Application\\Domain\\Domain.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Vs projects\\Application\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Vs projects\\Application\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Vs projects\\Application\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Kursach2021\\Application\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
