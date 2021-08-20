@@ -22,7 +22,8 @@ namespace Application
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddJsonFile(@"C:\Users\User\Documents\GitHub\Kursach2021\Application\Domain\appsettings\appsettrings.json");
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }

@@ -16,3 +16,21 @@ D:\Vs projects\Application\Core\obj\Debug\net5.0\Core.pdb
 D:\Vs projects\Application\Core\bin\Debug\net5.0\Core.runtimeconfig.json
 D:\Vs projects\Application\Core\bin\Debug\net5.0\Core.runtimeconfig.dev.json
 D:\Vs projects\Application\Core\obj\Debug\net5.0\Core.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Core.deps.json
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Core.runtimeconfig.json
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Core.runtimeconfig.dev.json
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Core.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\ref\Core.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Core.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Domain.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\bin\Debug\net5.0\Domain.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\ref\Core.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Core\obj\Debug\net5.0\Core.genruntimeconfig.cache

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverPath: "https://localhost:5001"
+  serverPath: "https://localhost:44318"
 };

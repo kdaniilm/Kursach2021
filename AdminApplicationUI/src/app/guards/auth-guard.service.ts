@@ -8,7 +8,14 @@ import { Observable } from 'rxjs';
 export class AuthGuardService implements CanActivate {
 
   constructor(public router: Router) { }
-    canActivate(): boolean{
-        throw new Error('Method not implemented.');
+  canActivate(): boolean{
+    let token = sessionStorage.getItem('jwt');
+    if (token != null) {
+      this.router.navigate(['login']);
+      return true;
+    }
+    else {
+      return false;
+    }
     }
 }

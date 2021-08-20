@@ -15,3 +15,20 @@ D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.csproj.CopyComplete
 D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.dll
 D:\Vs projects\Application\DLL\obj\Debug\net5.0\ref\BLL.dll
 D:\Vs projects\Application\DLL\obj\Debug\net5.0\BLL.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\BLL.deps.json
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\BLL.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\ref\BLL.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\BLL.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\Core.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\Domain.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\Core.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\bin\Debug\net5.0\Domain.pdb
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\ref\BLL.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\DLL\obj\Debug\net5.0\BLL.pdb
