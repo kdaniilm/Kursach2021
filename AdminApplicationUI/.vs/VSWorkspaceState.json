@@ -4,10 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\guards",
+    "\\src\\app\\login",
     "\\src\\app\\main",
-    "\\src\\app\\models",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\guards\\auth-guard.service.ts",
   "PreviewInSolutionExplorer": false
 }

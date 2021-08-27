@@ -8,24 +8,22 @@ import { MainComponent } from './main/main.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AuthGuardService } from 'src/app/guards/auth-guard.service';
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
-import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    RouterModule.forRoot([
-      { path: 'main', component: MainComponent, canActivate: ['AuthGuardService'] }])
+    AppRoutingModule
   ],
-  providers: [AuthGuardService
-    /*{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }*/
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

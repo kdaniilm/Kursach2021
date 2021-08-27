@@ -1,5 +1,7 @@
-﻿using Domain.Models;
+﻿using Domain.Entities;
+using Domain.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -16,15 +18,26 @@ namespace AplicationWebApi.Controllers
     [ApiController]
     public class ApiAuthController : ControllerBase
     {
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        public ApiAuthController(UserManager<User> userManager, SignInManager<User> signInManager) 
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(AdminLoginModel model)
+        public async Task<IActionResult> Login(AdminLoginModel model)
         {
-            if (model == null)
+            var user = await _userManager.FindByNameAsync(model.Login);
+            var role = await _userManager.GetRolesAsync(user);
+            var signInResult = await _signInManager.PasswordSignInAsync(model.Login, model.Password, false, false);
+
+            if (user == null)
             {
                 return BadRequest("Invalid data");
             }
-            else if (model.Login == "admin" && model.Password == "admin")
+            else if (signInResult.Succeeded && role.First() == "admin")
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
 
@@ -44,7 +57,6 @@ namespace AplicationWebApi.Controllers
             {
                 return Unauthorized();
             }
-
         }
     }
 }
