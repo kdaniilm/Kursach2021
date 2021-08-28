@@ -1,4 +1,8 @@
 ﻿using Application.Models;
+using AutoMapper;
+using BLL.Servises;
+using Domain.Entities;
+using Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +16,19 @@ namespace Application.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ProductService _productService;
+        private readonly IMapper _mapper;
+        public HomeController(ILogger<HomeController> logger, ProductService productService, IMapper mapper)
         {
             _logger = logger;
+            _productService = productService;
+            _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = _mapper.Map<List<Product>, List<ProductViewModel>>(await _productService.GetAllProducts());
+            return View(products);
         }
 
         public IActionResult Privacy()

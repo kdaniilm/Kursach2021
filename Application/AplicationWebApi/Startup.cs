@@ -1,3 +1,5 @@
+using AplicationWebApi.Infrastructure;
+using AutoMapper;
 using BLL.Interfaces;
 using BLL.Providers;
 using BLL.Servises;
@@ -47,6 +49,14 @@ namespace AplicationWebApi
             .AddDefaultTokenProviders().AddTokenProvider<EmailConfirmationTokenProvider<User>>("emailconfirmation");
 
             services.AddTransient<AuthService>();
+            services.AddTransient<ProductService>();
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MapperConfig());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddAuthentication(options =>
             {

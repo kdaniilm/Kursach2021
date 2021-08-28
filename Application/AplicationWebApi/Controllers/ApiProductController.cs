@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using BLL.Servises;
+using Domain.Entities;
+using Domain.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,21 +15,31 @@ namespace AplicationWebApi.Controllers
     [ApiController]
     public class ApiProductController : ControllerBase
     {
-        public ApiProductController()
+        private readonly ProductService _productService;
+        private readonly IMapper _mapper;
+        public ApiProductController(ProductService productService, IMapper mapper)
         {
-
+            _productService = productService;
+            _mapper = mapper;
         }
         [HttpPost]
         [Route("addProduct")]
-        public async Task<IActionResult> AddProduct()
+        public async Task<IActionResult> AddProduct(ProductViewModel productVM)
         {
+            if(productVM != null)
+            {
+                var product = _mapper.Map<ProductViewModel, Product>(productVM);
+                var res = await _productService.AddProduct(product);
+            }
             return new EmptyResult();
         }
-        [HttpPost]
+        [HttpGet]
         [Route("getAllProducts")]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<List<ProductViewModel>> GetAllProducts()
         {
-            return new EmptyResult();
+            var productList = await _productService.GetAllProducts();
+            var mapRes = _mapper.Map<List<Product>, List<ProductViewModel>>(productList);
+            return mapRes;
         }
     }
 }

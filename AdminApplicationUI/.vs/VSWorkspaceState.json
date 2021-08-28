@@ -3,11 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\guards",
-    "\\src\\app\\login",
+    "\\src\\app\\interceptors",
     "\\src\\app\\main",
+    "\\src\\app\\models",
+    "\\src\\app\\product-module",
+    "\\src\\app\\product-module\\add-product",
+    "\\src\\app\\product-module\\get-all-products",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\guards\\auth-guard.service.ts",
+  "SelectedNode": "\\src\\app\\product-module\\get-all-products\\get-all-products.component.ts",
   "PreviewInSolutionExplorer": false
 }

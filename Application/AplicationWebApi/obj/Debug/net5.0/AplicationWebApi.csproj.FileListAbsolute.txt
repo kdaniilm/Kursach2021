@@ -68,3 +68,4 @@ C:\Users\User\Documents\GitHub\Kursach2021\Application\AplicationWebApi\bin\Debu
 C:\Users\User\Documents\GitHub\Kursach2021\Application\AplicationWebApi\bin\Debug\net5.0\BLL.pdb
 C:\Users\User\Documents\GitHub\Kursach2021\Application\AplicationWebApi\bin\Debug\net5.0\Domain.pdb
 C:\Users\User\Documents\GitHub\Kursach2021\Application\AplicationWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\Documents\GitHub\Kursach2021\Application\AplicationWebApi\bin\Debug\net5.0\AutoMapper.dll

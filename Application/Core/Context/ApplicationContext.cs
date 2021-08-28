@@ -13,7 +13,7 @@ namespace Core.Context
     {
         DbSet<User> IApplicationContext.Users { get; set; }
         DbSet<Role> IApplicationContext.Roles { get; set; }
-        DbSet<Product> IApplicationContext.Products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public ApplicationContext(DbContextOptions options) : base(options) { }
     }

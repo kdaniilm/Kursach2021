@@ -794,3 +794,4 @@ C:\Users\User\Documents\GitHub\Kursach2021\Application\Application\obj\Debug\net
 C:\Users\User\Documents\GitHub\Kursach2021\Application\Application\obj\Debug\net5.0\ref\Application.dll
 C:\Users\User\Documents\GitHub\Kursach2021\Application\Application\obj\Debug\net5.0\Application.pdb
 C:\Users\User\Documents\GitHub\Kursach2021\Application\Application\obj\Debug\net5.0\Application.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\Kursach2021\Application\Application\bin\Debug\net5.0\AutoMapper.dll

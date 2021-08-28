@@ -6,7 +6,8 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'main', component: MainComponent, canActivate: [AuthGuardService] }
+  { path: 'main', component: MainComponent, canActivate: [AuthGuardService] },
+  { path: 'products', loadChildren: () => import('src/app/product-module/product-module.module').then(m => m.ProductModuleModule) }
 ];
 
 @NgModule({

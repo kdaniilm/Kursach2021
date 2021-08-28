@@ -1,0 +1,9 @@
+<div>
+  <button routerLink="add">Add new product</button>
+</div>
+<div *ngIf="productList">
+  <div *ngFor="let product of productList">
+    <label>Product name: {{product.productName}}</label>
+    <label>Product price: {{product.productPrice}}</label>
+  </div>
+</div>
