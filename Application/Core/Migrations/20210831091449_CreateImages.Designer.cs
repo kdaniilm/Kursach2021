@@ -4,42 +4,22 @@ using Core.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Core.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210831091449_CreateImages")]
+    partial class CreateImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Domain.Entities.Characteristic", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CharacteristicName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CharacteristicValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Characteristics");
-                });
 
             modelBuilder.Entity("Domain.Entities.Image", b =>
                 {
@@ -65,9 +45,6 @@ namespace Core.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProductDescription")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
@@ -302,15 +279,6 @@ namespace Core.Migrations
                     b.HasDiscriminator().HasValue("User");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Characteristic", b =>
-                {
-                    b.HasOne("Domain.Entities.Product", "Product")
-                        .WithMany("Characteristics")
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Domain.Entities.Image", b =>
                 {
                     b.HasOne("Domain.Entities.Product", "Product")
@@ -373,8 +341,6 @@ namespace Core.Migrations
 
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
-                    b.Navigation("Characteristics");
-
                     b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
