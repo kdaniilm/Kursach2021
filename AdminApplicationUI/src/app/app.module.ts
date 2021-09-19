@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
 import { LoginComponent } from './login/login.component';
+import { GetAllProductsComponent } from './product-module/get-all-products/get-all-products.component';
+import { AddProductComponent } from './product-module/add-product/add-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,9 @@ import { LoginComponent } from './login/login.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    GetAllProductsComponent, AddProductComponent, LoginComponent
+  ]
 })
 export class AppModule { }

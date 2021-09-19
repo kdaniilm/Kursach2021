@@ -4,18 +4,22 @@ import { GetAllProductsComponent } from './get-all-products/get-all-products.com
 import { ProductsRoutingModule } from './product-module-routing.module';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddCharacteristicsComponent } from './add-characteristics/add-characteristics.component';
 
 
 
 @NgModule({
   declarations: [
     GetAllProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddCharacteristicsComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ProductsRoutingModule
-  ]
+    ProductsRoutingModule,
+    AddCharacteristicsComponent
+  ],
+  bootstrap: [AddProductComponent, GetAllProductsComponent]
 })
 export class ProductModuleModule { }

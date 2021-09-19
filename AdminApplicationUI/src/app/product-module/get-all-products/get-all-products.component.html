@@ -1,9 +1,11 @@
 <div>
   <button routerLink="add">Add new product</button>
 </div>
-<div *ngIf="productList">
+<div class="col-md-2"></div>
+<div *ngIf="productList" class="col-md-8">
   <div *ngFor="let product of productList">
     <label>Product name: {{product.productName}}</label>
     <label>Product price: {{product.productPrice}}</label>
   </div>
 </div>
+<div class="col-md-2"></div>
