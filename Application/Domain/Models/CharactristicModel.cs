@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.ViewModels
+namespace Domain.Models
 {
-    class CharactristicViewModel
+    public class CharactristicModel
     {
         public string CharacteristicName { get; set; }
         public string CharacteristicValue { get; set; }
-        public string ProductId { get; set; }
     }
 }

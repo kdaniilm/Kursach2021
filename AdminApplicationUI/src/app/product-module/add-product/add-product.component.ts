@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductModel } from '../../models/productModel';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../environments/environment';
+import { ProductViewModel } from 'src/app/models/productViewModel';
 
 @Component({
   selector: 'app-add-product',
@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
 })
 export class AddProductComponent implements OnInit {
 
-  public productModel = new ProductModel();
+  public productModel = new ProductViewModel();
 
   public productFormGroup = new FormGroup({
     productName: new FormControl('', Validators.required),

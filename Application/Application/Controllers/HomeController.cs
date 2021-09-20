@@ -2,7 +2,7 @@
 using AutoMapper;
 using BLL.Servises;
 using Domain.Entities;
-using Domain.ViewModels;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,7 +27,7 @@ namespace Application.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = _mapper.Map<List<Product>, List<ProductViewModel>>(await _productService.GetAllProducts());
+            var products = _mapper.Map<List<Product>, List<ProductModel>>(await _productService.GetAllProducts());
             return View(products);
         }
 

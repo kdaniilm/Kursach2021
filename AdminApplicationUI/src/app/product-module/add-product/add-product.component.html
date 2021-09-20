@@ -2,6 +2,7 @@
 <div id="ContentDiv" class="com-md-8">
   <h1>Add new product</h1>
   <form [formGroup]="productFormGroup" (ngSubmit)="addProductSubmit()">
+    <app-add-characteristics></app-add-characteristics>
     <input type="text" placeholder="product name" formControlName="productName" />
     <input type="number" placeholder="product price" formControlName="productPrice" />
     <input type="submit" value="Add" />

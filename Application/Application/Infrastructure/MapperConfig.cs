@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Domain.ViewModels;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Application.Infrastructure
     {
         public MapperConfig()
         {
-            CreateMap<Product, ProductViewModel>();
+            CreateMap<Product, ProductModel>();
         }
     }
 }

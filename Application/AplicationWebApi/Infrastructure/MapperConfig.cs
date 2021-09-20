@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Domain.ViewModels;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +12,12 @@ namespace AplicationWebApi.Infrastructure
     {
         public MapperConfig()
         {
-            CreateMap<ProductViewModel, Product>();
-            CreateMap<Product, ProductViewModel>();
+            CreateMap<ProductModel, Product>();
+            CreateMap<Product, ProductModel>();
+
+            CreateMap<CharactristicModel, Characteristic>();
+            CreateMap<Characteristic, CharactristicModel>();
+
         }
     }
 }

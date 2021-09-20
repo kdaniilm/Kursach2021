@@ -17,9 +17,7 @@ import { AddCharacteristicsComponent } from './add-characteristics/add-character
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ProductsRoutingModule,
-    AddCharacteristicsComponent
-  ],
-  bootstrap: [AddProductComponent, GetAllProductsComponent]
+    ProductsRoutingModule
+  ]
 })
 export class ProductModuleModule { }

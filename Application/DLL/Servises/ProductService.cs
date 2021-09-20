@@ -17,12 +17,36 @@ namespace BLL.Servises
         {
             _context = context;
         }
-        public async Task<bool> AddProduct(Product product)
+        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics)
         {
-            if(product != null)
+            //foreach (var characteristic in characteristics)
+            //{
+            //    if (characteristic != null)
+            //    {
+            //        _context.Characteristics.Add(characteristic);
+            //    }
+            //}
+            //await _context.SaveChangesAsync();
+            //if(product != null)
+            //{
+            //    _context.Products.Add(product);
+            //    await _context.SaveChangesAsync();
+            //    return true;
+            //}
+            if (product != null && characteristics != null)
             {
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
+                //var productId = _context.Products.FirstOrDefault(p => p.ProductName == product.ProductName).Id;
+
+                foreach (var characteristic in characteristics)
+                {
+                    characteristic.Product = product;
+                    //characteristic.ProductId = productId;
+                    _context.Characteristics.Add(characteristic);
+                }
+                await _context.SaveChangesAsync();
+
                 return true;
             }
             return false;

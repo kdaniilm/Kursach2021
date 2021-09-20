@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Servises;
 using Domain.Entities;
+using Domain.Models;
 using Domain.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,17 +29,20 @@ namespace AplicationWebApi.Controllers
         {
             if(productVM != null)
             {
-                var product = _mapper.Map<ProductViewModel, Product>(productVM);
-                var res = await _productService.AddProduct(product);
+                var productModel = productVM.ProductModel;
+                var characteristicModel = productVM.CharactristicModels;
+                var product = _mapper.Map<ProductModel, Product>(productModel);
+                var characteristics = _mapper.Map<List<CharactristicModel>, List<Characteristic>>(characteristicModel);
+                var res = await _productService.AddProduct(product, characteristics);
             }
             return new EmptyResult();
         }
         [HttpGet]
         [Route("getAllProducts")]
-        public async Task<List<ProductViewModel>> GetAllProducts()
+        public async Task<List<ProductModel>> GetAllProducts()
         {
             var productList = await _productService.GetAllProducts();
-            var mapRes = _mapper.Map<List<Product>, List<ProductViewModel>>(productList);
+            var mapRes = _mapper.Map<List<Product>, List<ProductModel>>(productList);
             return mapRes;
         }
     }
