@@ -1,9 +1,16 @@
-﻿@model List<Domain.Models.ProductModel>
+﻿@model List<Domain.ViewModels.ProductViewModel>
 
 @foreach(var product in Model)
 {
     <div>
-        <p>Product Name: @product.ProductName</p>
-        <p>Product Price: @product.ProductPrice</p>
+        <h2>@product.ProductModel.ProductName</h2>
+        <p>Price: @product.ProductModel.ProductPrice</p>
+        <div>
+            <h3>Characteristics: </h3>
+           @foreach(var charactristic in product.CharactristicModels)
+            {
+               <p>@charactristic.CharacteristicName: &nbsp; @charactristic.CharacteristicValue;</p>
+            }
+        </div>
     </div>
 }

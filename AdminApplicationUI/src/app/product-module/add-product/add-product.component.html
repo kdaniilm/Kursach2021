@@ -1,11 +1,20 @@
-<div class="com-md-2"></div>
-<div id="ContentDiv" class="com-md-8">
+<div class="col-md-2"></div>
+<div id="ContentDiv" class="col-md-8">
   <h1>Add new product</h1>
   <form [formGroup]="productFormGroup" (ngSubmit)="addProductSubmit()">
-    <app-add-characteristics></app-add-characteristics>
-    <input type="text" placeholder="product name" formControlName="productName" />
-    <input type="number" placeholder="product price" formControlName="productPrice" />
-    <input type="submit" value="Add" />
+    <input class="form-control" type="text" placeholder="product name" formControlName="productName" />
+    <input class="form-control" type="number" placeholder="product price" formControlName="productPrice" />
+    <div class="input-group">
+      <h3>Characteristics</h3>
+      <div class="col">
+        <div class="row" *ngFor="let characteristic of characteristicModels">
+          <span>{{characteristic.characteristicName}}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span>{{characteristic.characteristicValue}};</span>
+        </div>
+      </div>
+        <input class="btn-primary" type="button" value="Add characteristic" (click)='addCharacteristic()'/>
+    </div>
+    <input class="btn-primary" type="submit" value="Add" />
   </form>
 </div>
-<div class="com-md-2"></div>
+<div class="col-md-2"></div>

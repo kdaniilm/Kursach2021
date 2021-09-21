@@ -27,7 +27,7 @@ namespace Application.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = _mapper.Map<List<Product>, List<ProductModel>>(await _productService.GetAllProducts());
+            var products = await _productService.GetAllProducts();
             return View(products);
         }
 

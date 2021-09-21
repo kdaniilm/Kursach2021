@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductViewModel } from 'src/app/models/productViewModel';
 import { environment } from '../../../environments/environment';
 import { ProductModel } from '../../models/productModel';
 
@@ -11,7 +12,7 @@ import { ProductModel } from '../../models/productModel';
 export class GetAllProductsComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
-  public productList!: Array<ProductModel>;
+  public productList!: Array<ProductViewModel>;
   ngOnInit(): void {
     this.getProducts();
   }

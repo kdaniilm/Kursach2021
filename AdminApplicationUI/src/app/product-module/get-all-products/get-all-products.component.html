@@ -4,8 +4,17 @@
 <div class="col-md-2"></div>
 <div *ngIf="productList" class="col-md-8">
   <div *ngFor="let product of productList">
-    <label>Product name: {{product.productName}}</label>
-    <label>Product price: {{product.productPrice}}</label>
+    <h2>{{product.productModel.productName}}: </h2>
+    <label>Price: {{product.productModel.productPrice}}</label>
+    <label>
+      <h3>Characteristics:</h3>
+      <div *ngIf="product.charactristicModels">
+        <p *ngFor="let characteristic of product.charactristicModels">
+          {{characteristic.characteristicName}}:&nbsp;{{characteristic.characteristicValue}};
+        </p>
+    </div>
+    </label>
+    <br/>
   </div>
 </div>
 <div class="col-md-2"></div>

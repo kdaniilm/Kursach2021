@@ -39,11 +39,11 @@ namespace AplicationWebApi.Controllers
         }
         [HttpGet]
         [Route("getAllProducts")]
-        public async Task<List<ProductModel>> GetAllProducts()
+        public async Task<List<ProductViewModel>> GetAllProducts()
         {
             var productList = await _productService.GetAllProducts();
-            var mapRes = _mapper.Map<List<Product>, List<ProductModel>>(productList);
-            return mapRes;
+
+            return productList;
         }
     }
 }

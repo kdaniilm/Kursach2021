@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../environments/environment';
+import { ProductModel } from 'src/app/models/productModel';
+import { CharacteristicModel } from 'src/app/models/characteristicModel';
 import { ProductViewModel } from 'src/app/models/productViewModel';
 
 @Component({
@@ -13,11 +15,16 @@ import { ProductViewModel } from 'src/app/models/productViewModel';
 })
 export class AddProductComponent implements OnInit {
 
-  public productModel = new ProductViewModel();
+  public productModel = new ProductModel();
+  public characteristicModels = Array<CharacteristicModel>();
+  public productViewModel = new ProductViewModel();
+
 
   public productFormGroup = new FormGroup({
     productName: new FormControl('', Validators.required),
-    productPrice: new FormControl('', Validators.required)
+    productPrice: new FormControl('', Validators.required),
+    characteristicName: new FormControl(''),
+    characteristicValue: new FormControl('')
   });
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -27,9 +34,27 @@ export class AddProductComponent implements OnInit {
   public addProductSubmit() {
     if (this.productFormGroup.valid) {
       this.productModel = this.productFormGroup.value;
-      this.http.post<any>(environment.serverPath + "/apiProduct/addProduct", this.productModel).subscribe((res: any) => {
+      
+      this.productViewModel.productModel = this.productModel;
+      this.productViewModel.charactristicModels = this.characteristicModels;
+
+      this.http.post<any>(environment.serverPath + "/apiProduct/addProduct", this.productViewModel).subscribe((res: any) => {
         alert("asd");
       });
+    }
+  }
+
+  public addCharacteristic(){
+    let characteristicNameFromForm = prompt('Insert characteristic name', 'New characteristic');
+    let characteristicValueFromForm = prompt('Insert characteristic value', 'Default value');
+
+    if(characteristicNameFromForm != null && characteristicValueFromForm != null){
+      let characteristicModel = new CharacteristicModel();
+
+      characteristicModel.characteristicName = characteristicNameFromForm;
+      characteristicModel.characteristicValue = characteristicValueFromForm;
+
+      this.characteristicModels.push(characteristicModel);
     }
   }
 }

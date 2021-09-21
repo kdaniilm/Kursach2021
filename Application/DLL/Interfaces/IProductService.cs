@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,6 @@ namespace BLL.Interfaces
     {
         public Task<bool> AddProduct(Product product, List<Characteristic> characteristic);
 
-        public Task<List<Product>> GetAllProducts();
+        public Task<List<ProductViewModel>> GetAllProducts();
     }
 }

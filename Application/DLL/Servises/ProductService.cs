@@ -1,6 +1,8 @@
 ﻿using BLL.Interfaces;
 using Core.Context;
 using Domain.Entities;
+using Domain.Models;
+using Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,30 +21,14 @@ namespace BLL.Servises
         }
         public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics)
         {
-            //foreach (var characteristic in characteristics)
-            //{
-            //    if (characteristic != null)
-            //    {
-            //        _context.Characteristics.Add(characteristic);
-            //    }
-            //}
-            //await _context.SaveChangesAsync();
-            //if(product != null)
-            //{
-            //    _context.Products.Add(product);
-            //    await _context.SaveChangesAsync();
-            //    return true;
-            //}
             if (product != null && characteristics != null)
             {
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
-                //var productId = _context.Products.FirstOrDefault(p => p.ProductName == product.ProductName).Id;
 
                 foreach (var characteristic in characteristics)
                 {
                     characteristic.Product = product;
-                    //characteristic.ProductId = productId;
                     _context.Characteristics.Add(characteristic);
                 }
                 await _context.SaveChangesAsync();
@@ -52,9 +38,24 @@ namespace BLL.Servises
             return false;
         }
 
-        public async Task<List<Product>> GetAllProducts()
+        public async Task<List<ProductViewModel>> GetAllProducts()
         {
-            var result = await _context.Products.ToListAsync();
+            var result = new List<ProductViewModel>();
+
+            var products = await _context.Products.ToListAsync();
+            
+            foreach(var product in products)
+            {
+                var productVM = new ProductViewModel();
+                productVM.CharactristicModels = new List<CharactristicModel>();
+                productVM.ProductModel = new ProductModel() { ProductName = product.ProductName, ProductPrice = product.ProductPrice};
+                var characteristics = await _context.Characteristics.Where(c => c.ProductId == product.Id).ToListAsync();
+                foreach (var characteristic in characteristics)
+                {
+                    productVM.CharactristicModels.Add(new CharactristicModel() { CharacteristicName = characteristic.CharacteristicName, CharacteristicValue = characteristic.CharacteristicValue });
+                }
+                result.Add(productVM);
+            }
             return result;
         }
 
