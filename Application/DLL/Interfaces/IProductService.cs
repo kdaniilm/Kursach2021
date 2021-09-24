@@ -9,6 +9,8 @@ namespace BLL.Interfaces
     {
         public Task<bool> AddProduct(Product product, List<Characteristic> characteristic);
 
+        public Task<bool> UploadImages();
+
         public Task<List<ProductViewModel>> GetAllProducts();
     }
 }

@@ -19,6 +19,7 @@ export class AddProductComponent implements OnInit {
   public characteristicModels = Array<CharacteristicModel>();
   public productViewModel = new ProductViewModel();
 
+  public productImages = Array<File>();
 
   public productFormGroup = new FormGroup({
     productName: new FormControl('', Validators.required),
@@ -31,12 +32,24 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  chooseFile(files: FileList) {
+    if (files.length === 0) {
+      return;
+    }
+    for (let i = 0; i < files.length; i++) {
+      this.productImages.push(files[i]);
+    }
+  }
+
   public addProductSubmit() {
     if (this.productFormGroup.valid) {
       this.productModel = this.productFormGroup.value;
       
       this.productViewModel.productModel = this.productModel;
       this.productViewModel.charactristicModels = this.characteristicModels;
+
+      this.productViewModel.productImages = this.productImages;
 
       this.http.post<any>(environment.serverPath + "/apiProduct/addProduct", this.productViewModel).subscribe((res: any) => {
         alert("asd");

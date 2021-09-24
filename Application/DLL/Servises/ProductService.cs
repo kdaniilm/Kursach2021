@@ -59,5 +59,9 @@ namespace BLL.Servises
             return result;
         }
 
+        public Task<bool> UploadImages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

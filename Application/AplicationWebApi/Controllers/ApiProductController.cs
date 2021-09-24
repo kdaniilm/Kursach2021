@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace AplicationWebApi.Controllers
@@ -23,11 +25,23 @@ namespace AplicationWebApi.Controllers
             _productService = productService;
             _mapper = mapper;
         }
-        [HttpPost]
+        [HttpPost, DisableRequestSizeLimit]
         [Route("addProduct")]
-        public async Task<IActionResult> AddProduct(ProductViewModel productVM)
+        public async Task<IActionResult> AddProduct(ProductViewModel productVM/*, [FromForm]List<IFormFile> images*/)
         {
-            if(productVM != null)
+            //if(images != null && images.Count != 0)
+            //{
+            //    foreach(var image in images)
+            //    {
+            //        var filePath = "../Domain/Images";
+            //        await using var stream = new FileStream(filePath, FileMode.Create);
+            //        await image.CopyToAsync(stream);
+            //    }
+            //}
+
+
+
+            if (productVM != null)
             {
                 var productModel = productVM.ProductModel;
                 var characteristicModel = productVM.CharactristicModels;
