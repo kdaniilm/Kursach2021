@@ -13,7 +13,6 @@ namespace Domain.ViewModels
     {
         public ProductModel ProductModel { get; set; }
         public List<CharactristicModel> CharactristicModels { get; set; }
-
-        //public List<File> ProductImages { get;set; }
+        public List<ImageViewModel> ImageViewModels { get; set; }
     }
 }

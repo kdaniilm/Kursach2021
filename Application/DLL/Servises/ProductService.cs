@@ -6,6 +6,7 @@ using Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace BLL.Servises
         {
             _context = context;
         }
-        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics)
+        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics, List<ImageViewModel> images)
         {
             if (product != null && characteristics != null)
             {
@@ -33,9 +34,33 @@ namespace BLL.Servises
                 }
                 await _context.SaveChangesAsync();
 
+                var savePath = $"../Domain/Images/{product.ProductName}";
+                CreateDirectory(savePath);
+
+                foreach (var image in images)
+                {
+                    var fileName = Path.GetRandomFileName() + image.ImageName;
+                    savePath = Path.Combine(savePath, fileName);
+                    if (!File.Exists(savePath))
+                    {
+                        using (FileStream fs = File.Create(savePath))
+                        {
+                            foreach(var imgByte in image.ImageValue)
+                            {
+                                fs.WriteByte(imgByte);
+                            }
+                        }
+                    }
+                }
+
                 return true;
             }
             return false;
+        }
+
+        private void CreateDirectory(string v)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<ProductViewModel>> GetAllProducts()

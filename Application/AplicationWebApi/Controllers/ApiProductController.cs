@@ -27,27 +27,15 @@ namespace AplicationWebApi.Controllers
         }
         [HttpPost, DisableRequestSizeLimit]
         [Route("addProduct")]
-        public async Task<IActionResult> AddProduct(ProductViewModel productVM/*, [FromForm]List<IFormFile> images*/)
+        public async Task<IActionResult> AddProduct(ProductViewModel productVM)
         {
-            //if(images != null && images.Count != 0)
-            //{
-            //    foreach(var image in images)
-            //    {
-            //        var filePath = "../Domain/Images";
-            //        await using var stream = new FileStream(filePath, FileMode.Create);
-            //        await image.CopyToAsync(stream);
-            //    }
-            //}
-
-
-
             if (productVM != null)
             {
                 var productModel = productVM.ProductModel;
                 var characteristicModel = productVM.CharactristicModels;
                 var product = _mapper.Map<ProductModel, Product>(productModel);
                 var characteristics = _mapper.Map<List<CharactristicModel>, List<Characteristic>>(characteristicModel);
-                var res = await _productService.AddProduct(product, characteristics);
+                var res = await _productService.AddProduct(product, characteristics, productVM.ImageViewModels);
             }
             return new EmptyResult();
         }

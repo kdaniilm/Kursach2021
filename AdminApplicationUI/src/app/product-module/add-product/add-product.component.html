@@ -2,18 +2,7 @@
 <div id="ContentDiv" class="col-md-8">
   <h1>Add new product</h1>
   <form [formGroup]="productFormGroup" (ngSubmit)="addProductSubmit()">
-    <div class="form-control">
-      <label class="btn btn-secondary" (click)="fileInput.value = null">
-        Choose Files
-        <input
-          #fileInput
-          type="file"
-          style="display: none"
-          (change)="chooseFile(fileInput.files)"
-          multiple
-        />
-      </label>
-    </div>
+    
     <input class="form-control" type="text" placeholder="product name" formControlName="productName" />
     <input class="form-control" type="number" placeholder="product price" formControlName="productPrice" />
     <div class="input-group">
