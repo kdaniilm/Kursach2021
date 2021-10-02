@@ -50,6 +50,8 @@ namespace AplicationWebApi.Controllers
 
             return productList;
         }
+
+
         [HttpPost]
         [Route("add-category")]
         public async Task<IActionResult> AddCategory(CategoryModel categoryModel)
@@ -57,6 +59,14 @@ namespace AplicationWebApi.Controllers
             var category = _mapper.Map<Category>(categoryModel);
             await _categoriesService.AddCategory(category);
             return new EmptyResult();
+        }
+
+        [HttpGet]
+        [Route("getAllCategories")]
+        public async Task<List<CategoryModel>> GetAllCategories()
+        {
+            var result = await _categoriesService.GetAllCategories();
+            return result;
         }
     }
 }

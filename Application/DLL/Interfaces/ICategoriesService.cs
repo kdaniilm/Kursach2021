@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace BLL.Interfaces
     {
         public Task<bool> AddCategory(Category category);
 
-        public Task<List<Category>> GetAllCategories();
+        public Task<List<CategoryModel>> GetAllCategories();
     }
 }

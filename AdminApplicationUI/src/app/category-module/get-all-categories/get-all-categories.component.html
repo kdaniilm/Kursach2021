@@ -1,1 +1,10 @@
-<button routerLink="add">add category</button>
+<div>
+    <button routerLink="add">add category</button>
+  </div>
+  <div class="col-md-2"></div>
+  <div *ngIf="categoryList" class="col-md-8">
+    <div *ngFor="let category of categoryList">
+      <h2>{{category.categoryName}}</h2>  
+    </div>
+  </div>
+  <div class="col-md-2"></div>

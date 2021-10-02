@@ -1,6 +1,8 @@
 ﻿using BLL.Interfaces;
 using Core.Context;
 using Domain.Entities;
+using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +30,16 @@ namespace BLL.Servises
             return false;
         }
 
-        public async Task<List<Category>> GetAllCategories()
+        public async Task<List<CategoryModel>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            var categories = await _context.Categories.ToListAsync();
+            var categoryModels = new List<CategoryModel>();
+            foreach(var category in categories)
+            {
+                categoryModels.Add(new CategoryModel() { Id = category.Id, CategoryName = category.CategoryName});
+            }
+
+            return categoryModels;
         }
     }
 }
