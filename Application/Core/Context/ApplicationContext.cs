@@ -16,6 +16,7 @@ namespace Core.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Characteristic> Characteristics { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public ApplicationContext(DbContextOptions options) : base(options) { }
     }
 }

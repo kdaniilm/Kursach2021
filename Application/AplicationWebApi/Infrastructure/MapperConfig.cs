@@ -18,6 +18,9 @@ namespace AplicationWebApi.Infrastructure
             CreateMap<CharactristicModel, Characteristic>();
             CreateMap<Characteristic, CharactristicModel>();
 
+            CreateMap<CategoryModel, Category>();
+            CreateMap<Category, CategoryModel>();
+
         }
     }
 }

@@ -51,6 +51,7 @@ namespace AplicationWebApi
 
             services.AddTransient<AuthService>();
             services.AddTransient<ProductService>();
+            services.AddTransient<CategoriesService>();
 
             var mapperConfig = new MapperConfiguration(mc =>
             {

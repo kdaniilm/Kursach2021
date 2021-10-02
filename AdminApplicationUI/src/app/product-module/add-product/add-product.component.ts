@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { ProductModel } from 'src/app/models/productModel';
 import { CharacteristicModel } from 'src/app/models/characteristicModel';
 import { ProductViewModel } from 'src/app/models/productViewModel';
+import { ImageModel } from 'src/app/models/ImageModel';
 
 @Component({
   selector: 'app-add-product',
@@ -18,14 +19,14 @@ export class AddProductComponent implements OnInit {
   public productModel = new ProductModel();
   public characteristicModels = Array<CharacteristicModel>();
   public productViewModel = new ProductViewModel();
-
-  public productImages = Array<File>();
+  public productImages = Array<ImageModel>();
 
   public productFormGroup = new FormGroup({
     productName: new FormControl('', Validators.required),
     productPrice: new FormControl('', Validators.required),
     characteristicName: new FormControl(''),
-    characteristicValue: new FormControl('')
+    characteristicValue: new FormControl(''),
+    image: new FormControl('')
   });
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -33,17 +34,9 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  chooseFile(files: FileList) {
-    if (files.length === 0) {
-      return;
-    }
-    for (let i = 0; i < files.length; i++) {
-      this.productImages.push(files[i]);
-    }
-  }
-
   public addProductSubmit() {
     if (this.productFormGroup.valid) {
+
       this.productModel = this.productFormGroup.value;
       
       this.productViewModel.productModel = this.productModel;
@@ -52,7 +45,7 @@ export class AddProductComponent implements OnInit {
       this.productViewModel.productImages = this.productImages;
 
       this.http.post<any>(environment.serverPath + "/apiProduct/addProduct", this.productViewModel).subscribe((res: any) => {
-        alert("asd");
+        alert("Product added");
       });
     }
   }
@@ -69,5 +62,15 @@ export class AddProductComponent implements OnInit {
 
       this.characteristicModels.push(characteristicModel);
     }
+  }
+
+  public imgAdd(data: any){
+      var path = data.image;
+      var productImage: ImageModel = new ImageModel();
+
+      productImage.imageName = path;
+      productImage.imageValue = Array<number>();
+
+      this.productImages.push();
   }
 }

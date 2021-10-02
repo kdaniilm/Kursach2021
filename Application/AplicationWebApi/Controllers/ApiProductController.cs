@@ -19,13 +19,16 @@ namespace AplicationWebApi.Controllers
     public class ApiProductController : ControllerBase
     {
         private readonly ProductService _productService;
+        private readonly CategoriesService _categoriesService;
+
         private readonly IMapper _mapper;
-        public ApiProductController(ProductService productService, IMapper mapper)
+        public ApiProductController(ProductService productService, CategoriesService categoriesService, IMapper mapper)
         {
             _productService = productService;
+            _categoriesService = categoriesService;
             _mapper = mapper;
         }
-        [HttpPost, DisableRequestSizeLimit]
+        [HttpPost]
         [Route("addProduct")]
         public async Task<IActionResult> AddProduct(ProductViewModel productVM)
         {
@@ -46,6 +49,14 @@ namespace AplicationWebApi.Controllers
             var productList = await _productService.GetAllProducts();
 
             return productList;
+        }
+        [HttpPost]
+        [Route("add-category")]
+        public async Task<IActionResult> AddCategory(CategoryModel categoryModel)
+        {
+            var category = _mapper.Map<Category>(categoryModel);
+            await _categoriesService.AddCategory(category);
+            return new EmptyResult();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace BLL.Servises
                     characteristic.Product = product;
                     _context.Characteristics.Add(characteristic);
                 }
-                await _context.SaveChangesAsync();
+                //await _context.SaveChangesAsync();
 
                 var savePath = $"../Domain/Images/{product.ProductName}";
                 CreateDirectory(savePath);
