@@ -5,6 +5,9 @@
     <app-upload-files></app-upload-files>
     <input class="form-control" type="text" placeholder="product name" formControlName="productName" />
     <input class="form-control" type="number" placeholder="product price" formControlName="productPrice" />
+    <select formControlName="category" *ngIf="categoryModels">
+      <option *ngFor="let category of categoryModels" value="{{category.id}}">{{category.categoryName}}</option>
+    </select>
     <div class="input-group">
       <h3>Characteristics</h3>
       <div class="col">

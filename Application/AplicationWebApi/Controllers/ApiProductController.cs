@@ -30,7 +30,7 @@ namespace AplicationWebApi.Controllers
             _categoriesService = categoriesService;
             _mapper = mapper;
         }
-        [HttpPost]
+        [HttpPost, DisableRequestSizeLimit]
         [Route("addProduct")]
         public async Task<IActionResult> AddProduct(ProductViewModel productVM)
         {
@@ -40,7 +40,8 @@ namespace AplicationWebApi.Controllers
                 var characteristicModel = productVM.CharactristicModels;
                 var product = _mapper.Map<ProductModel, Product>(productModel);
                 var characteristics = _mapper.Map<List<CharactristicModel>, List<Characteristic>>(characteristicModel);
-                var res = await _productService.AddProduct(product, characteristics, _images);
+                var categoryId = productVM.CategoryModel.Id;
+                var res = await _productService.AddProduct(product, characteristics, categoryId, _images);
             }
             return new EmptyResult();
         }
@@ -70,10 +71,12 @@ namespace AplicationWebApi.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Domain", "Images");
+                var guid = Guid.NewGuid().ToString();
+                var folderName = Path.Combine("Domain", $"Images");
+
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), @"..\");
-                //var directoryName = Path.Combine(pathToSave)
-                pathToSave = Path.Combine(pathToSave, folderName);
+                pathToSave = Path.Combine(pathToSave, folderName, guid);
+                Directory.CreateDirectory(Path.Combine(pathToSave));
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
@@ -83,7 +86,8 @@ namespace AplicationWebApi.Controllers
                     {
                         await file.CopyToAsync(stream);
                     }
-                    _images.Add(dbPath);
+                    _images.Add(fullPath);
+
                     return Ok(new { dbPath });
 
                 }

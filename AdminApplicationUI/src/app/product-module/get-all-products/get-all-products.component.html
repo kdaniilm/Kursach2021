@@ -4,6 +4,7 @@
 <div class="col-md-2"></div>
 <div *ngIf="productList" class="col-md-8">
   <div *ngFor="let product of productList">
+    <img [src]='generateServerPath(product.images[0])'/>
     <h2>{{product.productModel.productName}}: </h2>
     <label>Price: {{product.productModel.productPrice}}</label>
     <label>

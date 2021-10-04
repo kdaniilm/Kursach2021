@@ -7,5 +7,7 @@ namespace Domain.ViewModels
     {
         public ProductModel ProductModel { get; set; }
         public List<CharactristicModel> CharactristicModels { get; set; }
+        public CategoryModel CategoryModel { get; set; }
+        public List<string> Images { get; set; }
     }
 }

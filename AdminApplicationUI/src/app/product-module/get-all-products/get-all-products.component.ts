@@ -22,4 +22,8 @@ export class GetAllProductsComponent implements OnInit {
       this.productList = res;
     });
   }
+
+  public generateServerPath(serverPath: string){
+    return `environment.serverPath/${serverPath}`;
+  }
 }

@@ -20,10 +20,11 @@ namespace BLL.Servises
         {
             _context = context;
         }
-        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics, List<string> imagePathes)
+        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics, string categoryId, List<string> imagePathes)
         {
-            if (product != null && characteristics != null)
+            if (product != null && characteristics != null && categoryId != null)
             {
+                product.CategoryId = categoryId;
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
 
@@ -53,20 +54,23 @@ namespace BLL.Servises
             {
                 var productVM = new ProductViewModel();
                 productVM.CharactristicModels = new List<CharactristicModel>();
+                productVM.Images = new List<string>();
                 productVM.ProductModel = new ProductModel() { ProductName = product.ProductName, ProductPrice = product.ProductPrice};
                 var characteristics = await _context.Characteristics.Where(c => c.ProductId == product.Id).ToListAsync();
                 foreach (var characteristic in characteristics)
                 {
                     productVM.CharactristicModels.Add(new CharactristicModel() { CharacteristicName = characteristic.CharacteristicName, CharacteristicValue = characteristic.CharacteristicValue });
                 }
+
+                var images = await _context.Images.Where(img => img.ProductId == product.Id).ToListAsync();
+                foreach(var image in images)
+                {
+                    productVM.Images.Add(image.ImgPath);
+                }
                 result.Add(productVM);
             }
             return result;
         }
 
-        public Task<bool> UploadImages()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

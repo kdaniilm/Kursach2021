@@ -9,6 +9,7 @@ namespace Domain.Models
 {
     public class ProductModel
     {
+        public string Id { get; set; }
         [Required]
         public string ProductName { get; set; }
         [Required]

@@ -7,9 +7,7 @@ namespace BLL.Interfaces
 {
     public interface IProductService
     {
-        public Task<bool> AddProduct(Product product, List<Characteristic> characteristic, List<string> images);
-
-        public Task<bool> UploadImages();
+        public Task<bool> AddProduct(Product product, List<Characteristic> characteristic, string categoryId, List<string> images);
 
         public Task<List<ProductViewModel>> GetAllProducts();
     }
