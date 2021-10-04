@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
       this.http.post<any>(environment.serverPath + "/apiAuth/login", this.loginModel).subscribe((res: any) => {
         const token = (<any>res).token;
-        localStorage.setItem('jwt', token);
+        sessionStorage.setItem('jwt', token);
         this.router.navigate(['/main']);
       });
     }

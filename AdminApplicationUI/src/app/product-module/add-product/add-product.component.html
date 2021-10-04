@@ -2,13 +2,7 @@
 <div id="ContentDiv" class="col-md-8">
   <h1>Add new product</h1>
   <form [formGroup]="productFormGroup" (ngSubmit)="addProductSubmit()">
-    <div *ngIf="productImages">
-      <img *ngFor="let image of productImages" src="{{image.imageName}}"/>
-    </div>
-    <div class="form-group">
-      <label class="form-control">Choose images:</label>
-      <input class="form-control" type="file" multiple="true" accept="image/*" formControlName="image" (change)="imgAdd(this.productFormGroup.value)"/>
-    </div>
+    <app-upload-files></app-upload-files>
     <input class="form-control" type="text" placeholder="product name" formControlName="productName" />
     <input class="form-control" type="number" placeholder="product price" formControlName="productPrice" />
     <div class="input-group">

@@ -4,13 +4,15 @@ import { GetAllProductsComponent } from './get-all-products/get-all-products.com
 import { ProductsRoutingModule } from './product-module-routing.module';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
 
 
 
 @NgModule({
   declarations: [
     GetAllProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    UploadFilesComponent
   ],
   imports: [
     CommonModule,

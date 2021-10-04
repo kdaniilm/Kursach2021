@@ -22,6 +22,8 @@ namespace AplicationWebApi.Controllers
         private readonly CategoriesService _categoriesService;
 
         private readonly IMapper _mapper;
+
+        private static List<string> _images = new List<string>();
         public ApiProductController(ProductService productService, CategoriesService categoriesService, IMapper mapper)
         {
             _productService = productService;
@@ -38,7 +40,7 @@ namespace AplicationWebApi.Controllers
                 var characteristicModel = productVM.CharactristicModels;
                 var product = _mapper.Map<ProductModel, Product>(productModel);
                 var characteristics = _mapper.Map<List<CharactristicModel>, List<Characteristic>>(characteristicModel);
-                var res = await _productService.AddProduct(product, characteristics, productVM.ImageViewModels);
+                var res = await _productService.AddProduct(product, characteristics, _images);
             }
             return new EmptyResult();
         }
@@ -59,6 +61,41 @@ namespace AplicationWebApi.Controllers
             var category = _mapper.Map<Category>(categoryModel);
             await _categoriesService.AddCategory(category);
             return new EmptyResult();
+        }
+
+        [HttpPost, DisableRequestSizeLimit]
+        [Route("uploadImages")]
+        public async Task<IActionResult> UploadFiles()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Domain", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), @"..\");
+                //var directoryName = Path.Combine(pathToSave)
+                pathToSave = Path.Combine(pathToSave, folderName);
+                if (file.Length > 0)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    _images.Add(dbPath);
+                    return Ok(new { dbPath });
+
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex}");
+            }
         }
 
         [HttpGet]

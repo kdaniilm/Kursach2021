@@ -5,8 +5,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { GetAllCategoriesComponent } from './get-all-categories/get-all-categories.component';
 
 const routes: Routes = [
-  { path: '', component: GetAllCategoriesComponent, canActivate: [AuthGuardService] },
-  { path: 'add', component: AddCategoryComponent, canActivate: [AuthGuardService] }
+  { path: '', component: GetAllCategoriesComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

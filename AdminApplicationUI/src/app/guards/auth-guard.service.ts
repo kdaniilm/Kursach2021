@@ -8,7 +8,7 @@ export class AuthGuardService implements CanActivate {
 
   constructor(public router: Router) { }
   canActivate(): boolean{
-    let token = localStorage.getItem('jwt');
+    let token = sessionStorage.getItem('jwt');
     if (token != null) {
       return true;
     }

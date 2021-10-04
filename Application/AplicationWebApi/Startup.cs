@@ -49,6 +49,12 @@ namespace AplicationWebApi
                 .AddEntityFrameworkStores<ApplicationContext>()
             .AddDefaultTokenProviders().AddTokenProvider<EmailConfirmationTokenProvider<User>>("emailconfirmation");
 
+            services.Configure<FormOptions>(opt => {
+                opt.ValueLengthLimit = int.MaxValue;
+                opt.MultipartBodyLengthLimit = int.MaxValue;
+                opt.MemoryBufferThreshold = int.MaxValue;
+            });
+
             services.AddTransient<AuthService>();
             services.AddTransient<ProductService>();
             services.AddTransient<CategoriesService>();

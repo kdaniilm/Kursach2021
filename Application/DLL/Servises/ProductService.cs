@@ -20,7 +20,7 @@ namespace BLL.Servises
         {
             _context = context;
         }
-        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics, List<ImageViewModel> images)
+        public async Task<bool> AddProduct(Product product, List<Characteristic> characteristics, List<string> imagePathes)
         {
             if (product != null && characteristics != null)
             {
@@ -32,37 +32,17 @@ namespace BLL.Servises
                     characteristic.Product = product;
                     _context.Characteristics.Add(characteristic);
                 }
-                //await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-                var savePath = $"../Domain/Images/{product.ProductName}";
-                CreateDirectory(savePath);
-
-                foreach (var image in images)
+                foreach(var imagePath in imagePathes)
                 {
-                    var fileName = Path.GetRandomFileName() + image.ImageName;
-                    savePath = Path.Combine(savePath, fileName);
-                    if (!File.Exists(savePath))
-                    {
-                        using (FileStream fs = File.Create(savePath))
-                        {
-                            foreach(var imgByte in image.ImageValue)
-                            {
-                                fs.WriteByte(imgByte);
-                            }
-                        }
-                    }
+                    _context.Images.Add(new Image() { ImgPath = imagePath, Product = product});
                 }
-
+                await _context.SaveChangesAsync();
                 return true;
             }
             return false;
         }
-
-        private void CreateDirectory(string v)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<ProductViewModel>> GetAllProducts()
         {
             var result = new List<ProductViewModel>();
