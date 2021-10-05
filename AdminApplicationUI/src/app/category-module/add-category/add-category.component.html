@@ -1,9 +1,7 @@
-<div class="col-md-2"></div>
-<div id="ContentDiv" class="col-md-8">
-  <h1>Add new Category</h1>
-  <form [formGroup]="categoryFormGroup" (ngSubmit)="AddCategorySubmit()">
-    <input class="form-control" type="text" placeholder="category name" formControlName="categoryName" />
-    <input class="btn-primary" type="submit" value="Add" />
+<div id="ContentDiv" class="row justify-content-center align-items-center">
+  <h1 class="col-6 text-center">Add new Category</h1>
+  <form class="col-8 row justify-content-center align-items-center" [formGroup]="categoryFormGroup" (ngSubmit)="AddCategorySubmit()">
+    <input class="form-control" type="text" placeholder="Category name" formControlName="categoryName" />
+    <input class="btn btn-primary col-md-4 mt-2" type="submit" value="Add new category" />
   </form>
 </div>
-<div class="col-md-2"></div>

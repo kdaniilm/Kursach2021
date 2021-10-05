@@ -1,24 +1,26 @@
 <div class="col-md-2"></div>
+<div class="row justify-content-center align-items-center">
 <div id="ContentDiv" class="col-md-8">
   <h1>Add new product</h1>
   <form [formGroup]="productFormGroup" (ngSubmit)="addProductSubmit()">
     <app-upload-files></app-upload-files>
     <input class="form-control" type="text" placeholder="product name" formControlName="productName" />
-    <input class="form-control" type="number" placeholder="product price" formControlName="productPrice" />
-    <select formControlName="category" *ngIf="categoryModels">
-      <option *ngFor="let category of categoryModels" value="{{category.id}}">{{category.categoryName}}</option>
-    </select>
-    <div class="input-group">
-      <h3>Characteristics</h3>
-      <div class="col">
-        <div class="row" *ngFor="let characteristic of characteristicModels">
-          <span>{{characteristic.characteristicName}}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span>{{characteristic.characteristicValue}};</span>
-        </div>
-      </div>
-        <input class="btn-primary" type="button" value="Add characteristic" (click)='addCharacteristic()'/>
+    <input class="form-control mt-2" type="number" placeholder="product price" formControlName="productPrice" />
+    <div class="row mt-2">
+      <h3>Select category: </h3>
+      <select class="form-control mt-2" formControlName="category" *ngIf="categoryModels">
+        <option *ngFor="let category of categoryModels" value="{{category.id}}">{{category.categoryName}}</option>
+      </select>
     </div>
-    <input class="btn-primary" type="submit" value="Add" />
+    <div class="input-group row justify-content-center align-items-center">
+      <h3>Characteristics</h3>
+        <div class="row" *ngFor="let characteristic of characteristicModels">
+          <span class="fw-bold">{{characteristic.characteristicName}}: {{characteristic.characteristicValue}};</span>
+        </div>
+        <input class="btn btn-primary col-6 " type="button" value="Add characteristic" (click)='addCharacteristic()'/>
+    </div>
+    <input class="col-12 btn btn-primary mt-2" type="submit" value="Add product"/>
   </form>
+</div>
 </div>
 <div class="col-md-2"></div>

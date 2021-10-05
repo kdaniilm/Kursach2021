@@ -1,21 +1,17 @@
-<div>
-  <button routerLink="add">Add new product</button>
+<div class="row justify-content-center align-items-center">
+  <button class="btn btn-primary col-8 mt-2" routerLink="add">Add new product</button>
 </div>
-<div class="col-md-2"></div>
-<div *ngIf="productList" class="col-md-8">
-  <div *ngFor="let product of productList">
-    <img [src]='generateServerPath(product.images[0])'/>
-    <h2>{{product.productModel.productName}}: </h2>
-    <label>Price: {{product.productModel.productPrice}}</label>
-    <label>
-      <h3>Characteristics:</h3>
+<div *ngIf="productList" class="row mt-2 ms-2">
+  <div class="card mb-2 me-1" style="width: 23rem;" *ngFor="let product of productList">
+    <img  class="card-img-top" [src]='generateServerPath(product.images[0])'/>
+    <div class="card-body">
+      <h4 class="card-title">{{product.productModel.productName}}</h4>
+      <label>Price: {{product.productModel.productPrice}}</label>
+      <h5>Characteristics:</h5>
       <div *ngIf="product.charactristicModels">
         <p *ngFor="let characteristic of product.charactristicModels">
           {{characteristic.characteristicName}}:&nbsp;{{characteristic.characteristicValue}};
         </p>
     </div>
-    </label>
-    <br/>
   </div>
 </div>
-<div class="col-md-2"></div>

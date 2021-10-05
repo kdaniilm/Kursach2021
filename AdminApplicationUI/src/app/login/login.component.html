@@ -1,5 +1,8 @@
-<form [formGroup]="loginFormGroup" (ngSubmit)="loginSubmit()">
-  <input type="text" placeholder="login" formControlName="login" />
-  <input type="text" placeholder="password" formControlName="password" />
-  <input type="submit" value="SignIn" />
+<div class="row justify-content-center align-items-center mt-5">
+<h2 class="col-8 text-center">Login</h2>
+<form class="col-6 text-center" [formGroup]="loginFormGroup" (ngSubmit)="loginSubmit()">
+  <input class="form-control col-6 mt-2" type="text" placeholder="login" formControlName="login" />
+  <input class="form-control col-6 mt-2" type="text" placeholder="password" formControlName="password" />
+  <input class="btn btn-primary col-6 mt-2" type="submit" value="SignIn" />
 </form>
+</div>

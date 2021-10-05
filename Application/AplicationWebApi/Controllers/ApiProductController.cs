@@ -3,6 +3,7 @@ using BLL.Servises;
 using Domain.Entities;
 using Domain.Models;
 using Domain.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,15 +21,17 @@ namespace AplicationWebApi.Controllers
     {
         private readonly ProductService _productService;
         private readonly CategoriesService _categoriesService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         private readonly IMapper _mapper;
 
         private static List<string> _images = new List<string>();
-        public ApiProductController(ProductService productService, CategoriesService categoriesService, IMapper mapper)
+        public ApiProductController(ProductService productService, CategoriesService categoriesService, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _productService = productService;
             _categoriesService = categoriesService;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
         [HttpPost, DisableRequestSizeLimit]
         [Route("addProduct")]
@@ -72,11 +75,15 @@ namespace AplicationWebApi.Controllers
             {
                 var file = Request.Form.Files[0];
                 var guid = Guid.NewGuid().ToString();
-                var folderName = Path.Combine("Domain", $"Images");
+                var folderName = Path.Combine(this.Request.Host.Value, $"wwwroot", $"Images");
 
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), @"..\");
-                pathToSave = Path.Combine(pathToSave, folderName, guid);
-                Directory.CreateDirectory(Path.Combine(pathToSave));
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot", @"Images");
+                var dirPath = Path.Combine(pathToSave, guid);
+                Directory.CreateDirectory(dirPath);
+
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                string contentRootPath = _webHostEnvironment.ContentRootPath;
+                var path = Path.Combine(webRootPath, "Images", guid);
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');

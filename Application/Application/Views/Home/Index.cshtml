@@ -1,17 +1,22 @@
 ﻿@model List<Domain.ViewModels.ProductViewModel>
 
-<div class="row">
+<div class="row mt-2 ms-2">
 @foreach(var product in Model)
 {
-    <div class="col-md-3">
-        <h2>@product.ProductModel.ProductName</h2>
-        <p>Price: @product.ProductModel.ProductPrice</p>
-        <div>
-            <h3>Characteristics: </h3>
-           @foreach(var charactristic in product.CharactristicModels)
-            {
-               <p>@charactristic.CharacteristicName: &nbsp; @charactristic.CharacteristicValue;</p>
-            }
+    <div class="card mb-2 me-1" style="width: 23rem;">
+        <img  class="card-img-top" src=""/>
+        <div class="card-body">
+            <h4 class="card-title">@product.ProductModel.ProductName</h4>
+            <label>Price: @product.ProductModel.ProductPrice</label>
+            <div>
+                <h5>Characteristics:</h5>
+                <div>
+                    @foreach (var charactristic in product.CharactristicModels)
+                    {
+                        <p>@charactristic.CharacteristicName: &nbsp; @charactristic.CharacteristicValue;</p>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 }
